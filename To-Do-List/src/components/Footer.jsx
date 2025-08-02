@@ -1,7 +1,7 @@
 
 
 const Footer = () => (
-  <div className="footer-css text-center bg-pink">
+  <div className="footer-css text-center">
     <p className="display-6 fw-bold">@All Rights Are Reserved</p>
     <p className="fs-4 fw-semibold">Developed by Sagar Bhor</p>
   </div>
