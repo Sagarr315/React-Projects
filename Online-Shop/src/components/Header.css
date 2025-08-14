@@ -1,0 +1,49 @@
+/* Light Mode Header */
+.header {
+  background: #FFF4E6;
+  border-bottom: 1px solid #E0D5C0;
+}
+
+.custom-brand {
+  color: #3A3226 !important;
+}
+
+.custom-brand:hover {
+  color: #3A3226 !important;
+}
+
+.custom-nav-link {
+  color: #3A3226 !important;
+  text-decoration: none !important;
+}
+
+.custom-nav-link:hover {
+  color: #D4A76A !important;
+}
+
+.custom-search {
+  background: #FFFFFF;
+  border-color: #E0D5C0;
+}
+
+.custom-search-btn {
+  color: #3A3226;
+  border-color: #E0D5C0;
+}
+
+.custom-search-btn:hover {
+  background: #D4A76A;
+  color: white;
+}
+
+.custom-icon {
+  color: #3A3226 !important;
+}
+
+.custom-icon:hover {
+  color: #D4A76A !important;
+}
+
+.custom-toggler {
+  border-color: #E0D5C0;
+}

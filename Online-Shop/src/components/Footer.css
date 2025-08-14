@@ -1,0 +1,86 @@
+/* Light Mode Footer */
+.footer {
+  background: #FFF4E6;
+  color: #3A3226;
+  border-top: 1px solid #E0D5C0;
+}
+
+.footer-heading {
+  color: #3A3226;
+}
+
+.footer-text {
+  color: #6B5A48;
+}
+.text-decoration-none{
+    color:black;
+}
+.footer-link {
+  color:black;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: #D4A76A;
+}
+
+.social-icon {
+  color: #3A3226;
+}
+
+.social-icon:hover {
+  color: #D4A76A;
+}
+
+.footer-divider {
+  border-color: black;
+}
+
+.footer-copyright {
+  color: #6B5A48;
+}
+
+
+
+
+/* Dark Mode Footer */
+.footer-dark {
+  background: #1A1A1A;
+  color: #F0E6D2;
+  border-top: 1px solid #3D3D3D;
+}
+
+.footer-heading-dark {
+  color: #F0E6D2;
+}
+
+.footer-text-dark {
+  color: #A0A0A0;
+}
+
+.footer-link-dark {
+  color: #F0E6D2;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-link-dark:hover {
+  color: #D4A76A;
+}
+
+.social-icon-dark {
+  color: #F0E6D2;
+}
+
+.social-icon-dark:hover {
+  color: #D4A76A;
+}
+
+.footer-divider-dark {
+  border-color: #3D3D3D;
+}
+
+.footer-copyright-dark {
+  color: #A0A0A0;
+}
