@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./Header.css"; 
+import "./Header.css";
 
 function Header() {
   return (
@@ -70,6 +70,11 @@ function Header() {
                 <Link className="nav-link custom-icon" to="/cart">
                   <i className="bi bi-cart fs-5"></i>
                 </Link>
+              </li>
+              <li className="nav-item">
+                <button className="nav-link custom-icon btn border-0 bg-transparent">
+                  <i className="bi bi-sun fs-5"></i>
+                </button>
               </li>
             </ul>
           </div>
