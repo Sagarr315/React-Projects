@@ -8,7 +8,7 @@ function Footer() {
         <div className="row">
           {/* About */}
           <div className="col-md-4">
-            <h5 className="footer-heading">OnlineShop</h5>
+            <h4 className="footer-heading">OnlineShop</h4>
             <p className="footer-text">
               Your trusted online store for quality products at great prices.
             </p>
@@ -16,7 +16,7 @@ function Footer() {
 
           {/* Quick Links */}
           <div className="col-md-4">
-            <h5 className="footer-heading">Quick Links</h5>
+            <h4 className="footer-heading">Quick Links</h4>
             <ul className="list-unstyled fw-semibold">
               <li>
                 <Link to="/" className="footer-link">
@@ -43,7 +43,7 @@ function Footer() {
 
           {/* Social Icons */}
           <div className="col-md-4">
-            <h5 className="footer-heading">Follow Us</h5>
+            <h4 className="footer-heading">Follow Us</h4>
             <a href="#" className="social-icon me-3">
               <i className="bi bi-facebook fs-4"></i>
             </a>
@@ -58,7 +58,7 @@ function Footer() {
 
         <hr className="footer-divider" />
         <p className="footer-copyright text-center mb-0">
-          &copy; {new Date().getFullYear()} ShopEase. All Rights Reserved.
+          &copy; {new Date().getFullYear()} OnlineShop. All Rights Reserved.
         </p>
       </div>
     </footer>
