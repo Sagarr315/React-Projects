@@ -1,0 +1,75 @@
+.home {
+  color: #3a3226; /* text color */
+  font-family: Arial, sans-serif;
+}
+
+/* Banner */
+.banner {
+  background: #fff4e6;
+  padding: 60px 20px;
+  border-bottom: 1px solid #e0d5c0;
+}
+
+.banner h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.banner p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.btn-accent {
+  background-color: #d4a76a;
+  color: #3a3226;
+  border: none;
+  padding: 10px 20px;
+  transition: background 0.3s ease;
+}
+
+.btn-accent:hover {
+  background-color: #e8c99d;
+}
+
+/* Categories */
+.categories {
+  padding: 60px 20px;
+}
+
+.category-card {
+  border: 1px solid #e0d5c0;
+  padding: 20px;
+  margin: 10px;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.category-card:hover {
+  background: #e8c99d;
+}
+
+/* Featured */
+.featured {
+  background: #fafafa;
+  padding: 60px 20px;
+}
+
+.product-card {
+  border: 1px solid #e0d5c0;
+  padding: 20px;
+  margin: 10px;
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-card h3 {
+  margin-top: 15px;
+  font-size: 1.2rem;
+}
