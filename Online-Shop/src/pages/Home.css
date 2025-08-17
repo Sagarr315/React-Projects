@@ -73,3 +73,13 @@
   margin-top: 15px;
   font-size: 1.2rem;
 }
+
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
