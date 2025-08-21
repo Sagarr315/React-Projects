@@ -1,119 +1,108 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
+import ProductCard from "../components/ProductCard";
+import SearchBar from "../components/SearchBar";
+import SortDropdown from "../components/SortDropdown";
+import FilterSidebar from "../components/FilterSidebar";
+import Pagination from "../components/Pagination";
 
 function ProductsPage() {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("all");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortOption, setSortOption] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(""); // for filter
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 8;
 
+  const productsPerPage = 6;
+
+  // Fetch products from DummyJSON
   useEffect(() => {
-    fetch("https://dummyjson.com/products")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data.products); 
-        setLoading(false);
-      })
-      
-      .catch((err) => {
-        console.error("Error fetching products:", err);
-        setError("Failed to load products.");
-        setLoading(false);
-      });
+    async function fetchProducts() {
+      const res = await fetch("https://dummyjson.com/products?limit=100");
+      const data = await res.json();
+      setProducts(data.products);
+    }
+    fetchProducts();
   }, []);
 
-  const filteredProducts = products.filter((product) => {
-    const matchesSearch = product.title
-      .toLowerCase()
-      .includes(search.toLowerCase());
-    const matchesCategory =
-      category === "all" ? true : product.category === category;
-    return matchesSearch && matchesCategory;
-  });
- 
+  // Extract unique categories from products
+  const categories = useMemo(() => {
+    const allCategories = products.map((p) => p.category);
+    return [...new Set(allCategories)];
+  }, [products]);
+
+  // Filtering + Searching + Sorting
+  const filteredProducts = useMemo(() => {
+    let result = [...products];
+
+    // filter by category
+    if (selectedCategory) {
+      result = result.filter((p) => p.category === selectedCategory);
+    }
+
+    // search
+    if (searchTerm) {
+      result = result.filter((p) =>
+        p.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    // sorting
+    if (sortOption === "low-high") {
+      result.sort((a, b) => a.price - b.price);
+    } else if (sortOption === "high-low") {
+      result.sort((a, b) => b.price - a.price);
+    } else if (sortOption === "az") {
+      result.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (sortOption === "za") {
+      result.sort((a, b) => b.title.localeCompare(a.title));
+    }
+
+    return result;
+  }, [products, selectedCategory, searchTerm, sortOption]);
+
+  // Pagination
   const indexOfLast = currentPage * productsPerPage;
   const indexOfFirst = indexOfLast - productsPerPage;
   const currentProducts = filteredProducts.slice(indexOfFirst, indexOfLast);
+
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
-
+  
   return (
-    <div className="container my-5">
-      <h1 className="text-center mb-4">Products</h1>
-
-      {/* Search + Filter */}
-      <div className="row mb-4">
-        <div className="col-md-6">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search products..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
+    <div className="container mt-4">
+      <div className="row">
+        {/* Sidebar for filter */}
+        <div className="col-md-3">
+          <FilterSidebar
+            categories={categories}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
           />
         </div>
-        <div className="col-md-6">
-          <select
-            className="form-select"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
-            <option value="all">All Categories</option>
-            <option value="smartphones">Smartphones</option>
-            <option value="laptops">Laptops</option>
-            <option value="fragrances">Fragrances</option>
-            <option value="skincare">Skincare</option>
-            <option value="groceries">Groceries</option>
-          </select>
-        </div>
-      </div>
 
-      {/* Loading + Error */}
-      {loading && <p className="text-center">Loading products...</p>}
-      {error && <p className="text-danger text-center">{error}</p>}
-
-      {/* Products Grid */}
-      <div className="row">
-        {currentProducts.map((product) => (
-          <div key={product.id} className="col-md-3 col-6 mb-4">
-            <div className="card h-100 shadow-sm">
-              <img
-                src={product.thumbnail}
-                alt={product.title}
-                className="card-img-top"
-                style={{ height: "180px", objectFit: "cover" }}
-              />
-              <div className="card-body">
-                <h5 className="card-title">{product.title}</h5>
-                <p className="card-text">${product.price}</p>
-              </div>
-            </div>
+        {/* Main content */}
+        <div className="col-md-9">
+          <div className="d-flex justify-content-between mb-3">
+            <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            <SortDropdown
+              sortOption={sortOption}
+              setSortOption={setSortOption}
+            />
           </div>
-        ))}
-      </div>
-
-      {/* Pagination */}
-      <div className="d-flex justify-content-center mt-4">
-        <nav>
-          <ul className="pagination">
-            {[...Array(totalPages)].map((_, i) => (
-              <li
-                key={i}
-                className={`page-item ${
-                  currentPage === i + 1 ? "active" : ""
-                }`}
-              >
-                <button
-                  className="page-link"
-                  onClick={() => setCurrentPage(i + 1)}
-                >
-                  {i + 1}
-                </button>
-              </li>
+          {/* Products */}
+          <div className="row">
+            {currentProducts.map((product) => (
+              <div key={product.id} className="col-md-4 mb-4">
+                <ProductCard product={product} />
+              </div>
             ))}
-          </ul>
-        </nav>
+          </div>
+          {/* Pagination */}
+          <Pagination
+            totalPages={totalPages}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
+        </div>
       </div>
     </div>
   );
