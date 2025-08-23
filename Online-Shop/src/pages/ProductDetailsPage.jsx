@@ -3,12 +3,15 @@ import { useParams } from "react-router-dom";
 import ProductImageZoom from "../components/ProductImageZoom";
 import ToastNotification from "../components/ToastNotification";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 function ProductDetailsPage() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [toast, setToast] = useState(null);
   const navigate = useNavigate();
+
+  const { addToCart } = useCart();
 
   useEffect(() => {
     async function fetchProduct() {
@@ -24,7 +27,12 @@ function ProductDetailsPage() {
   }, [id]);
 
   const handleAddToCart = () => {
-    // Here you can integrate localStorage cart logic
+    addToCart({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      quantity: 1, // start with 1
+    });
     setToast("Product added to cart!");
     setTimeout(() => setToast(null), 3000); // auto-hide after 3s
   };
@@ -33,7 +41,7 @@ function ProductDetailsPage() {
 
   return (
     <div className="container mt-4">
-        <button className="btn btn-secondary mb-3" onClick={() => navigate(-1)}>
+      <button className="btn btn-secondary mb-3" onClick={() => navigate(-1)}>
         ← Back
       </button>
       {toast && <ToastNotification message={toast} />}
