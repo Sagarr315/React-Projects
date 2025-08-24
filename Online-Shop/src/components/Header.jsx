@@ -72,6 +72,11 @@ function Header() {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link custom-icon" to="/wishlist">
+                  <i className="bi bi-heart fs-5"></i>
+                </Link>
+              </li>
+              <li className="nav-item">
                 <button className="nav-link custom-icon btn border-0 bg-transparent">
                   <i className="bi bi-sun fs-5"></i>
                 </button>

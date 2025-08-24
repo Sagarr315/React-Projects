@@ -4,6 +4,7 @@ import ProductImageZoom from "../components/ProductImageZoom";
 import ToastNotification from "../components/ToastNotification";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { useWishlist } from "../context/WishlistContext";
 
 function ProductDetailsPage() {
   const { id } = useParams();
@@ -38,7 +39,7 @@ function ProductDetailsPage() {
   };
 
   if (!product) return <div className="text-center mt-5">Loading...</div>;
-
+  const { addToWishlist } = useWishlist();
   return (
     <div className="container mt-4">
       <button className="btn btn-secondary mb-3" onClick={() => navigate(-1)}>
@@ -64,6 +65,12 @@ function ProductDetailsPage() {
           </button>
         </div>
       </div>
+      <button
+        className="btn btn-outline-danger mt-3"
+        onClick={() => addToWishlist(product)}
+      >
+        ❤️ Add to Wishlist
+      </button>
     </div>
   );
 }
