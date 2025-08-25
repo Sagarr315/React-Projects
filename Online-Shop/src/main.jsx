@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 import { WishlistProvider } from "./context/WishlistContext.jsx";
+import { OrderProvider } from "./context/OrderContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./index.css";
@@ -13,7 +14,9 @@ createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <CartProvider>
         <WishlistProvider>
-          <App />
+          <OrderProvider>
+            <App />
+          </OrderProvider>
         </WishlistProvider>
       </CartProvider>
     </BrowserRouter>

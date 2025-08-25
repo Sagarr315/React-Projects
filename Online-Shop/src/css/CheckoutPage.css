@@ -1,0 +1,60 @@
+.checkout-page {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.checkout-page h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #222;
+}
+
+.checkout-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.checkout-page input {
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.2s ease-in-out;
+}
+
+.checkout-page input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+.checkout-page button {
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.checkout-page button:hover {
+  background: linear-gradient(135deg, #0056b3, #004095);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 91, 187, 0.25);
+}
+
+/* Toast notification alignment */
+.checkout-page .toast {
+  margin-bottom: 15px;
+}

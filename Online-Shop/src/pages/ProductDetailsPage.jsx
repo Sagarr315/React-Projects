@@ -8,11 +8,14 @@ import { useWishlist } from "../context/WishlistContext";
 
 function ProductDetailsPage() {
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
-  const [toast, setToast] = useState(null);
   const navigate = useNavigate();
 
+  // Hooks at top
   const { addToCart } = useCart();
+  const { addToWishlist } = useWishlist();
+
+  const [product, setProduct] = useState(null);
+  const [toast, setToast] = useState(null);
 
   useEffect(() => {
     async function fetchProduct() {
@@ -28,6 +31,7 @@ function ProductDetailsPage() {
   }, [id]);
 
   const handleAddToCart = () => {
+    if (!product) return;
     addToCart({
       id: product.id,
       title: product.title,
@@ -35,17 +39,26 @@ function ProductDetailsPage() {
       quantity: 1, // start with 1
     });
     setToast("Product added to cart!");
-    setTimeout(() => setToast(null), 3000); // auto-hide after 3s
+    setTimeout(() => setToast(null), 3000);
+  };
+
+  const handleAddToWishlist = () => {
+    if (!product) return;
+    addToWishlist(product);
+    setToast("Product added to wishlist!");
+    setTimeout(() => setToast(null), 3000);
   };
 
   if (!product) return <div className="text-center mt-5">Loading...</div>;
-  const { addToWishlist } = useWishlist();
+
   return (
     <div className="container mt-4">
       <button className="btn btn-secondary mb-3" onClick={() => navigate(-1)}>
         ← Back
       </button>
+
       {toast && <ToastNotification message={toast} />}
+
       <div className="row">
         {/* Product Images */}
         <div className="col-md-6">
@@ -60,17 +73,18 @@ function ProductDetailsPage() {
           <h4>${product.price}</h4>
           <p>Rating: {product.rating} ⭐</p>
           <p>Stock: {product.stock}</p>
+
           <button className="btn btn-primary mt-3" onClick={handleAddToCart}>
             Add to Cart
           </button>
+          <button
+            className="btn btn-outline-danger mt-3 ms-2"
+            onClick={handleAddToWishlist}
+          >
+            ❤️ Add to Wishlist
+          </button>
         </div>
       </div>
-      <button
-        className="btn btn-outline-danger mt-3"
-        onClick={() => addToWishlist(product)}
-      >
-        ❤️ Add to Wishlist
-      </button>
     </div>
   );
 }
