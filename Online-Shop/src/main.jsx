@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 import { WishlistProvider } from "./context/WishlistContext.jsx";
 import { OrderProvider } from "./context/OrderContext";
+import { ThemeProvider } from "./context/ThemeContext.jsx"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./index.css";
@@ -15,7 +16,9 @@ createRoot(document.getElementById("root")).render(
       <CartProvider>
         <WishlistProvider>
           <OrderProvider>
-            <App />
+            <ThemeProvider>
+              <App />
+            </ThemeProvider>
           </OrderProvider>
         </WishlistProvider>
       </CartProvider>

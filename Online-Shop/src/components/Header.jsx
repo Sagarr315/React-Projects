@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
+import { useTheme } from "../context/ThemeContext";
 
 function Header() {
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <div className="header">
       <nav className="navbar navbar-expand-lg shadow-sm">
@@ -82,8 +85,15 @@ function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <button className="nav-link custom-icon btn border-0 bg-transparent">
-                  <i className="bi bi-sun fs-5"></i>
+                <button
+                  className="nav-link custom-icon btn border-0 bg-transparent"
+                  onClick={toggleTheme}
+                >
+                  {theme === "light" ? (
+                    <i className="bi bi-moon fs-5"></i>
+                  ) : (
+                    <i className="bi bi-sun fs-5"></i>
+                  )}
                 </button>
               </li>
             </ul>
