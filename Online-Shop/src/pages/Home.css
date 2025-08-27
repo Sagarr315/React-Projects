@@ -83,3 +83,98 @@
 .card:hover {
   transform: translateY(-5px);
 }
+
+/*Dark Mode Homepage */
+body.dark .home {
+  color: #F0E6D2; /* light text */
+  font-family: Arial, sans-serif;
+}
+
+/* Banner */
+body.dark .banner {
+  background: #1A1A1A;
+  padding: 60px 20px;
+  border-bottom: 1px solid #3D3D3D;
+}
+
+body.dark .banner h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #F0E6D2;
+}
+
+body.dark .banner p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #A0A0A0; /* softer text */
+}
+
+body.dark .btn-accent {
+  background-color: #D4A76A; /* gold */
+  color: #1A1A1A; /* dark contrast */
+  border: none;
+}
+
+body.dark .btn-accent:hover {
+  background-color: #E8C99D; /* lighter gold */
+  color: #1A1A1A;
+}
+
+/* Categories */
+body.dark .categories {
+  padding: 60px 20px;
+}
+
+body.dark .category-card {
+  border: 1px solid #3D3D3D;
+  padding: 20px;
+  margin: 10px;
+  background: #1A1A1A;
+  color: #F0E6D2;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+body.dark .category-card:hover {
+  background: #3D3D3D;
+}
+
+/* Featured Section */
+body.dark .featured {
+  background: #1A1A1A;
+  padding: 60px 20px;
+}
+
+body.dark .product-card {
+  border: 1px solid #3D3D3D;
+  padding: 20px;
+  margin: 10px;
+  background: #1A1A1A;
+  color: #F0E6D2;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark .product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); /* subtle white glow */
+}
+
+body.dark .product-card h3 {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: #F0E6D2;
+}
+
+/* Cards */
+body.dark .card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1A1A1A;
+  border: 1px solid #3D3D3D;
+  color: #F0E6D2;
+  transition: 0.3s;
+}
+
+body.dark .card:hover {
+  transform: translateY(-5px);
+}

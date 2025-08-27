@@ -1,4 +1,4 @@
-/* Light Mode Header */
+/*Light Mode (Default) */
 .header {
   background: #FFF4E6;
   border-bottom: 1px solid #E0D5C0;
@@ -46,4 +46,46 @@
 
 .custom-toggler {
   border-color: #E0D5C0;
+}
+
+/*Dark Mode Overrides */
+body.dark .header {
+  background: #1A1A1A; /* Dark background */
+  border-bottom: 1px solid #3D3D3D;
+}
+
+body.dark .custom-brand {
+  color: #F0E6D2 !important; /* Light text */
+}
+
+body.dark .custom-nav-link {
+  color: #F0E6D2 !important;
+}
+
+body.dark .custom-nav-link:hover {
+  color: #D4A76A !important; /* Gold accent */
+}
+
+body.dark .custom-search {
+  background: #1A1A1A;
+  border-color: #3D3D3D;
+  color: #F0E6D2;
+}
+
+body.dark .custom-search-btn {
+  color: #F0E6D2;
+  border-color: #3D3D3D;
+}
+
+body.dark .custom-search-btn:hover {
+  background: #D4A76A;
+  color: #1A1A1A; /* Contrast on hover */
+}
+
+body.dark .custom-icon {
+  color: #F0E6D2 !important;
+}
+
+body.dark .custom-icon:hover {
+  color: #D4A76A !important;
 }
