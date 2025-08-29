@@ -6,7 +6,17 @@ const WishlistPage = () => {
 
   return (
     <div>
-      <h2>My Wishlist ❤️</h2>
+      <h2
+        style={{
+          textAlign: "center",
+          margin: "2rem 0",
+          fontSize: "1.8rem",
+          color: "#3A3226", // rich brown for light mode
+        }}
+      >
+        My Wishlist ❤️
+      </h2>
+      <div className="wishlist-container">
       {wishlist.length === 0 ? (
         <p>Your wishlist is empty 🖤</p>
       ) : (
@@ -14,6 +24,7 @@ const WishlistPage = () => {
           <WishlistItem key={product.id} product={product} />
         ))
       )}
+      </div>
     </div>
   );
 };

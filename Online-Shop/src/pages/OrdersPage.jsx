@@ -1,4 +1,5 @@
 import { useOrders } from "../context/OrderContext";
+import "../css/OrderPage.css"
 
 const OrdersPage = () => {
   const { orders } = useOrders();

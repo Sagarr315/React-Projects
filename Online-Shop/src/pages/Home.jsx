@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Home.css";
 
 function Home() {
@@ -7,7 +8,9 @@ function Home() {
       <section className="banner text-center">
         <h1>Welcome to OnlineShop</h1>
         <p>Best Deals Everyday. Shop Now!</p>
-        <button className="btn btn-accent mt-3">Shop Now</button>
+        <Link to="/productpage">
+          <button className="btn btn-accent mt-3">Shop Now</button>
+        </Link>
       </section>
       {/* Categories Section */}
       <section className="categories container text-center">
@@ -24,29 +27,17 @@ function Home() {
         <h2>Featured Products</h2>
         <div className="row mt-4 justify-content-center">
           <div className="col-md-3 col-10 product-card">
-            <img
-              src=".."
-              alt="Product 1"
-              className="img-fluid"
-            />
+            <img src=".." alt="Product 1" className="img-fluid" />
             <h3>Product 1</h3>
             <p>$99.99</p>
           </div>
           <div className="col-md-3 col-10 product-card">
-            <img
-              src=".."
-              alt="Product 2"
-              className="img-fluid"
-            />
+            <img src=".." alt="Product 2" className="img-fluid" />
             <h3>Product 2</h3>
             <p>$149.99</p>
           </div>
           <div className="col-md-3 col-10 product-card">
-            <img
-              src=".."
-              alt="Product 3"
-              className="img-fluid"
-            />
+            <img src=".." alt="Product 3" className="img-fluid" />
             <h3>Product 3</h3>
             <p>$79.99</p>
           </div>

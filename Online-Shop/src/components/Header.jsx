@@ -38,18 +38,13 @@ function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link custom-nav-link" to="/deals">
-                  Deals
+                <Link className="nav-link custom-nav-link" to="/orders">
+                  Orders
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link custom-nav-link" to="/contact">
                   Contact
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link custom-nav-link" to="/orders">
-                  Orders
                 </Link>
               </li>
             </ul>
@@ -69,11 +64,6 @@ function Header() {
 
             {/* Icons */}
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link className="nav-link custom-icon" to="/account">
-                  <i className="bi bi-person fs-5"></i>
-                </Link>
-              </li>
               <li className="nav-item">
                 <Link className="nav-link custom-icon" to="/cart">
                   <i className="bi bi-cart fs-5"></i>

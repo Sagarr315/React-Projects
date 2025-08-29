@@ -7,7 +7,6 @@ import { OrderProvider } from "./context/OrderContext";
 import { ThemeProvider } from "./context/ThemeContext.jsx"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import "./index.css";
 import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(

@@ -71,6 +71,9 @@ body.dark .custom-search {
   border-color: #3D3D3D;
   color: #F0E6D2;
 }
+body.dark .custom-search::placeholder {
+  color: #F0E6D2 ;
+}
 
 body.dark .custom-search-btn {
   color: #F0E6D2;

@@ -1,0 +1,63 @@
+/* LIGHT MODE */
+.orders-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+  background: #fff4e6; 
+  color: #3a3226; 
+}
+
+.orders-page h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #3a3226;
+}
+
+.order-card {
+  background: #fff;
+  border: 1px solid #e0d5c0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.order-card h4 {
+  margin-bottom: 0.5rem;
+  color: #3a3226;
+}
+
+.order-card strong {
+  color: #3a3226;
+}
+
+.order-card li {
+  color: #3a3226;
+}
+
+/* ===== DARK MODE ===== */
+body.dark .orders-page {
+  background: #1a1a1a; 
+  color: #f0e6d2; 
+}
+
+body.dark .orders-page h2,
+body.dark .order-card h4,
+body.dark .order-card strong,
+body.dark .order-card li {
+  color: #f0e6d2;
+}
+
+body.dark .order-card {
+  background: #1a1a1a;
+  border: 1px solid #3d3d3d; 
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}

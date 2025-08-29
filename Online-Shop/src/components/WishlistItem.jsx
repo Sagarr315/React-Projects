@@ -1,5 +1,6 @@
 import { useWishlist } from "../context/WishlistContext";
 import { useCart } from "../context/CartContext";
+import "../css/WishlistItem.css"
 
 const WishlistItem = ({ product }) => {
   const { removeFromWishlist, moveToCart } = useWishlist();
