@@ -92,3 +92,102 @@ body.dark .custom-icon {
 body.dark .custom-icon:hover {
   color: #D4A76A !important;
 }
+
+/* === SIDEBAR BASE === */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -110px; /* hidden by default */
+  width: 110px;
+  height: 100%;
+  transition: right 0.3s ease;
+  z-index: 1050;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 1rem;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* === DARK MODE SIDEBAR === */
+body.dark .sidebar {
+  background: #1A1A1A; 
+  border-left: 1px solid #3D3D3D; 
+}
+
+body.dark .sidebar a {
+  color: #F0E6D2; 
+}
+
+body.dark .sidebar a:hover {
+  color: #D4A76A; 
+}
+
+/* === LIGHT MODE SIDEBAR === */
+body.light .sidebar {
+  background: #FFF4E6; 
+  border-left: 1px solid #E0D5C0; 
+}
+
+body.light .sidebar a {
+  color: #3A3226; 
+}
+
+body.light .sidebar a:hover {
+  color: #E8C99D; 
+}
+
+/* === CLOSE BUTTON === */
+.sidebar .close-btn {
+  align-self: flex-end;
+  font-size: 1.8rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+body.dark .sidebar .close-btn {
+  color: #F0E6D2;
+}
+
+body.dark .sidebar .close-btn:hover {
+  color: #D4A76A;
+}
+
+body.light .sidebar .close-btn {
+  color: #3A3226;
+}
+
+body.light .sidebar .close-btn:hover {
+  color: #D4A76A;
+}
+
+/* === OVERLAY === */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 1040;
+}
